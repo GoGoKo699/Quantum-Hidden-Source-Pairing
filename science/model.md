@@ -16,11 +16,11 @@ Write $`F_{ij}`$ for the register exchange, $`\tau=I/d`$ for the state of one ma
 
 An unmatched pair's marginal is $`\tau^{\otimes 2}`$, and every port marginal is $`\tau`$. One physical realization of the same $`\rho_\theta`$ starts with shared pure draws and sends each through an independent whole-register depolarizing channel of retention $`\lambda`$. The resulting visibility is $`\theta=\lambda^2`$. The model uses ideal shot timing and readout. Per-qubit noise on a multiqubit register could change the visibility model and is a separate resource assumption.
 
-The learner receives only the native registers, their port labels, and shot boundaries. It knows $`m,d,\theta`$, where $`0<\theta\le1`$. It receives no source seeds, state descriptions, preparation access, or extra copies of the latent draw. At $`\theta=0`$ the matching is unidentifiable. The state-design choice matters. Uniform multiqubit stabilizer states realize this exact pair model with polynomial-time state preparation at each endpoint. The proof makes no claim for product designs applied independently to the qubits within a port. [Design reference](../references/RELATED_WORK.md)
+The learner receives only the native registers, their port labels, and shot boundaries. It knows $`m,d,\theta`$, where $`0\lt \theta\le1`$. It receives no source seeds, state descriptions, preparation access, or extra copies of the latent draw. At $`\theta=0`$ the matching is unidentifiable. The state-design choice matters. Uniform multiqubit stabilizer states realize this exact pair model with polynomial-time state preparation at each endpoint. The proof makes no claim for product designs applied independently to the qubits within a port. [Design reference](../references/RELATED_WORK.md)
 
 ## Success and measurement access
 
-A run succeeds only when its classical output is the entire true perfect matching. Require success at least $`1-\delta`$ for every matching, with $`0<\delta\le1/4`$. One shot supplies one register at each port, so $`T`$ shots use $`mT`$ physical specimens under every access model. The same shot and visibility conventions apply to these three classes.
+A run succeeds only when its classical output is the entire true perfect matching. Require success at least $`1-\delta`$ for every matching, with $`0\lt \delta\le1/4`$. One shot supplies one register at each port, so $`T`$ shots use $`mT`$ physical specimens under every access model. The same shot and visibility conventions apply to these three classes.
 
 | Measurement class | Allowed quantum processing |
 | --- | --- |
