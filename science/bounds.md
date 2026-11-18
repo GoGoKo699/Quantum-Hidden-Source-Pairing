@@ -16,37 +16,37 @@ At fixed positive visibility the last row is $`\Theta(dL)`$. Its dimension facto
 
 ## From information to exact recovery
 
-Write $`\tau_k=I/d^k`$ and $`\rho_M`$ for the one-snapshot state. Under a uniformly drawn matching, let $`P_M`$ be the outcome law and $`\overline{P}`$ its mean. For any reference law $`Q`$, the average of $`D(P_M\|Q)`$ equals the mutual information of the matching and the outcome plus $`D(\overline{P}\|Q)`$. Use $`Q`$ from the same measurement on $`\tau_m^{\otimes T}`$. With $`N=(m-1)!!`$ possible matchings, Fano’s inequality implies
+Write $`\tau_k=I/d^k`$ and $`\rho_M`$ for the one-snapshot state. Under a uniformly drawn matching, let $`P_M`$ be the outcome law and $`\overline{P}`$ its mean. For any reference law $`Q`$, the average of $`D(P_M,Q)`$ equals the mutual information of the matching and the outcome plus $`D(\overline{P},Q)`$. Use $`Q`$ from the same measurement on $`\tau_m^{\otimes T}`$. With $`N=(m-1)!!`$ possible matchings, Fano’s inequality implies
 
 ```math
-\mathbb E_M D(P_M\|Q)\ge (1-\delta)\log N-\log 2.
+\mathbb E_M D(P_M,Q)\ge (1-\delta)\log N-\log 2.
 ```
 
-Here and below logarithms in information quantities are natural. At $`m\ge4`$ and $`\delta\le1/4`$ the right-hand side is $`\Omega(m\log m)`$, including the three matchings at $`m=4`$. This yields the $`\log m`$ terms. The separate quartet arguments below yield the dependence on $`\log(1/\delta)`$ even when the number of ports stays fixed. Taking the larger of the two lower bounds gives their sum up to a factor of two.
+The ordered arguments of $`D(A,B)`$ denote relative entropy from $`A`$ to $`B`$. Logarithms in information quantities are natural. At $`m\ge4`$ and $`\delta\le1/4`$ the right-hand side is $`\Omega(m\log m)`$, including the three matchings at $`m=4`$. This yields the $`\log m`$ terms. The separate quartet arguments below yield the dependence on $`\log(1/\delta)`$ even when the number of ports stays fixed. Taking the larger of the two lower bounds gives their sum up to a factor of two.
 
 ## Unrestricted joint readout
 
 On one true pair, the mixture $`\rho_\theta=(1-\theta)\tau_2+\theta(I+F)/(d(d+1))`$ and the reference $`\tau_2`$ are both constant on the symmetric and antisymmetric subspaces of the exchange operator $`F`$. Their quantum relative entropy equals a binary relative entropy
 
 ```math
-D(\rho_\theta\|\tau_2)=D_{\rm Ber}(p_1\|p_0),
+D(\rho_\theta,\tau_2)=D_{\rm Ber}(p_1,p_0),
 \qquad p_0=\frac{d+1}{2d},\qquad p_1=p_0+\theta(1-p_0).
 ```
 
-The bound $`D_{\rm Ber}(u\|v)\le (u-v)^2/[v(1-v)]`$ gives $`D_{\rm Ber}(p_1\|p_0)\le\theta^2`$. After tensoring $`mT/2`$ independent pairs, data processing gives $`D(P_M\|Q)\le (mT/2)\theta^2`$ for every joint measurement. The preceding information bound now gives $`\Omega(\theta^{-2}\log m)`$.
+The bound $`D_{\rm Ber}(u,v)\le (u-v)^2/[v(1-v)]`$ gives $`D_{\rm Ber}(p_1,p_0)\le\theta^2`$. After tensoring $`mT/2`$ independent pairs, data processing gives $`D(P_M,Q)\le (mT/2)\theta^2`$ for every joint measurement. The preceding information bound now gives $`\Omega(\theta^{-2}\log m)`$.
 
 For high confidence, choose two matchings that differ only on four ports. Write $`\sigma_0,\sigma_1`$ for the corresponding one-shot quartet states. Any estimator with failure $`\delta`$ on both matchings gives an equal-prior binary test with error at most $`\delta`$. The remaining ports have an identical state under both alternatives and can be prepared by the tester.
 
-For $`\theta\le1/2`$, the density relative to the two-port maximally mixed state is $`I+\theta J`$, where $`J=(dF-I)/(d+1)`$ has operator norm at most one. Each quartet state is the product over two disjoint pairs. Therefore $`\sigma_1\succeq I/(4d^4)`$ and $`\|\sigma_0-\sigma_1\|_\infty\le5\theta/d^4`$. These give
+For $`\theta\le1/2`$, the density relative to the two-port maximally mixed state is $`I+\theta J`$, where $`J=(dF-I)/(d+1)`$ has operator norm at most one. Each quartet state is the product over two disjoint pairs. Therefore $`\sigma_1\succeq I/(4d^4)`$ and $`\nu(\sigma_0-\sigma_1)\le 5\theta/d^4`$. Here $`\nu`$ denotes spectral norm. These give
 
 ```math
-D(\sigma_0\|\sigma_1)
+D(\sigma_0,\sigma_1)
 \le \log\mathrm{Tr}(\sigma_0^2\sigma_1^{-1})
 \le \mathrm{Tr}\big[(\sigma_0-\sigma_1)^2\sigma_1^{-1}\big]
 \le 100\theta^2.
 ```
 
-The first inequality follows by applying Jensen’s inequality to $`\log(r_i/s_j)`$ with weights $`r_i|\langle i|j\rangle|^2`$ for eigenpairs of $`\sigma_0`$ and $`\sigma_1`$. The root fidelity $`f(\sigma_0,\sigma_1)=\|\sqrt{\sigma_0}\sqrt{\sigma_1}\|_1`$ satisfies $`f\ge\exp[-D(\sigma_0\|\sigma_1)/2]`$. Multiplicativity of $`f`$ and the trace-distance fidelity bound imply that the optimal test error is at least $`f^{2T}/4\ge e^{-100T\theta^2}/4`$.
+The first inequality follows by applying Jensen’s inequality to $`\log(r_i/s_j)`$ with weights $`r_i|\langle i|j\rangle|^2`$ for eigenpairs of $`\sigma_0`$ and $`\sigma_1`$. The root fidelity $`f(\sigma_0,\sigma_1)=\mathrm{Tr}\sqrt{\sqrt{\sigma_1}\sigma_0\sqrt{\sigma_1}}`$ satisfies $`f\ge\exp[-D(\sigma_0,\sigma_1)/2]`$. Multiplicativity of $`f`$ and the trace-distance fidelity bound imply that the optimal test error is at least $`f^{2T}/4\ge e^{-100T\theta^2}/4`$.
 
 For $`\theta\ge1/2`$, both quartet states dominate the common positive operator $`\Pi_{\rm sym}^{(4)}/d^4`$, where $`\Pi_{\rm sym}^{(4)}`$ projects onto the fully symmetric subspace of the four ports. Indeed, each exchange acts as $`+1`$ there, and both states have eigenvalue at least $`1/d^4`$ there. This common operator has trace at least $`1/24`$. The two $`T`$-shot states then share a positive component of trace at least $`24^{-T}`$, so every equal-prior test errs with probability at least $`24^{-T}/2`$. This also implies the bound $`e^{-100T\theta^2}/4`$ in this visibility range. Together the two cases give $`T\ge (100\theta^2)^{-1}\log(1/(4\delta))`$. Combining this with the matching-count term gives $`\Omega(\theta^{-2}L)`$.
 
@@ -73,8 +73,8 @@ Thus the expectation under $`Q`$ of any polynomial affine in each coordinate equ
 For the forward divergence, expand the log likelihood and use the chord from $`t=0`$ to $`t=1`$ to upper-bound the convex function $`\ell(t)\log\ell(t)`$ in each term. Each summand is this function for one edge times the nonnegative factor $`\prod_{e'\ne e}\ell(t_{e'})`$. The resulting polynomial is affine in every coordinate, so its expectation is the independent Bernoulli one. For the reverse divergence, apply the same chord construction to the convex function $`-\log\ell(t)`$ in each term. Write $`q_0=1/d`$ and $`q_1=q_0\ell(1)=q_0+\theta(d-1)/(d(d+1))`$. The endpoint variable has probability $`q_0`$ of one under the reference, and reweighting by $`\ell`$ changes that probability to $`q_1`$. This gives both bounds
 
 ```math
-D(P_M\|Q)\le R\,D_{\rm Ber}(q_1\|q_0),\qquad
-D(Q\|P_M)\le R\,D_{\rm Ber}(q_0\|q_1).
+D(P_M,Q)\le R\,D_{\rm Ber}(q_1,q_0),\qquad
+D(Q,P_M)\le R\,D_{\rm Ber}(q_0,q_1).
 ```
 
 Measuring each port in the same orthonormal basis achieves equality in the two bounds against the specified reference. The local factors are then basis projectors so every $`t_e`$ is a collision indicator, and the chord inequalities are equalities. The optimality here concerns relative entropy against the reference for a fixed matching and specimen-separable effects.
@@ -85,8 +85,8 @@ For confidence, again use two matchings differing on a quartet. The restrictions
 
 ```math
 \frac12\log(1/\delta)-\log 2
-\le D(Q\|P_b)
-\le 2T D_{\rm Ber}(q_0\|q_1).
+\le D(Q,P_b)
+\le 2T D_{\rm Ber}(q_0,q_1).
 ```
 
 The left side follows from $`Q(A_b^c)\ge1/2`$ and the binary entropy bound $`\log 2`$. The reverse divergence is useful because the accuracy demand controls errors under $`P_b`$ while the reference remains common to both matchings. Combining with the matching-count term establishes $`\Omega(d\theta^{-2}L)`$.
