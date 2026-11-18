@@ -22,10 +22,14 @@ jobs:
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
-      - name: Install the isolated browser and math runtime
-        run: |
-          npm install --prefix "$RUNNER_TEMP/math-runtime" playwright@1.56.1 mathjax-full@3.2.1
-          node "$RUNNER_TEMP/math-runtime/node_modules/playwright/cli.js" install --with-deps chromium
+      - name: Install the pinned Node packages
+        timeout-minutes: 2
+        run: npm install --prefer-offline --no-audit --no-fund --fetch-retries=1 --fetch-timeout=20000 --prefix "$RUNNER_TEMP/math-runtime" playwright@1.56.1 mathjax-full@3.2.1
+      - name: Install only the headless browser using runner image libraries
+        timeout-minutes: 3
+        env:
+          PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT: 20000
+        run: node "$RUNNER_TEMP/math-runtime/node_modules/playwright/cli.js" install chromium --only-shell
       - name: Capture the integrated public scientific revision
         run: |
           export NODE_PATH="$RUNNER_TEMP/math-runtime/node_modules"
