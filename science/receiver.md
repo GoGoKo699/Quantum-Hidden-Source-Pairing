@@ -33,7 +33,7 @@ The counter equals a function of the exchange eigenvalues on their common eigens
 On the original $`T`$-shot state of a fixed matching, the distribution of $`N_e`$ is binomial with parameter $`p_1`$ for a true edge and $`p_0`$ otherwise. For a fixed edge let $`C_e`$ be its correct-outcome projector, either $`E_e`$ or $`I-E_e`$. The Hoeffding bound gives
 
 ```math
-1-\operatorname{Tr}(C_e\rho)\le
+1-\mathrm{Tr}(C_e\rho)\le
 \exp\!\left[-\frac{T(p_1-p_0)^2}{2}\right].
 ```
 
