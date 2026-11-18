@@ -41,8 +41,8 @@ For $`\theta\le1/2`$, the density relative to the two-port maximally mixed state
 
 ```math
 D(\sigma_0\|\sigma_1)
-\le \log\operatorname{Tr}(\sigma_0^2\sigma_1^{-1})
-\le \operatorname{Tr}\big[(\sigma_0-\sigma_1)^2\sigma_1^{-1}\big]
+\le \log\mathrm{Tr}(\sigma_0^2\sigma_1^{-1})
+\le \mathrm{Tr}\big[(\sigma_0-\sigma_1)^2\sigma_1^{-1}\big]
 \le 100\theta^2.
 ```
 
@@ -52,7 +52,7 @@ For $`\theta\ge1/2`$, both quartet states dominate the common positive operator 
 
 ## Sharp information loss for specimen-separable effects
 
-It suffices to refine each separable outcome into product positive effects. Refining can only increase either relative entropy. Zero effects can be dropped. For one refined outcome $`y`$, normalize the local factors to trace-one operators $`\sigma_{y,i}`$, with $`i`$ indexing individual specimens. Let $`\mathcal E_M`$ be the set of $`R=mT/2`$ true pairs across the batch. For a pair $`e=(i,j)`$, put $`t_e=\operatorname{Tr}(\sigma_{y,i}\sigma_{y,j})\in[0,1]`$. The likelihood relative to $`Q`$ factorizes:
+It suffices to refine each separable outcome into product positive effects. Refining can only increase either relative entropy. Zero effects can be dropped. For one refined outcome $`y`$, normalize the local factors to trace-one operators $`\sigma_{y,i}`$, with $`i`$ indexing individual specimens. Let $`\mathcal E_M`$ be the set of $`R=mT/2`$ true pairs across the batch. For a pair $`e=(i,j)`$, put $`t_e=\mathrm{Tr}(\sigma_{y,i}\sigma_{y,j})\in[0,1]`$. The likelihood relative to $`Q`$ factorizes:
 
 ```math
 \frac{P_M(y)}{Q(y)}=\prod_{e\in\mathcal E_M}\ell(t_e),
@@ -60,11 +60,11 @@ It suffices to refine each separable outcome into product positive effects. Refi
 \ell(t)=1-\frac{\theta}{d+1}+\frac{\theta d}{d+1}t.
 ```
 
-The outcome variables $`t_e`$ can be dependent. Their disjoint-edge product moments are nonetheless fixed. For any subset $`S\subseteq\mathcal E_M`$, the identity $`\operatorname{Tr}[(A\otimes B)F]=\operatorname{Tr}(AB)`$ and POVM completeness give
+The outcome variables $`t_e`$ can be dependent. Their disjoint-edge product moments are nonetheless fixed. For any subset $`S\subseteq\mathcal E_M`$, the identity $`\mathrm{Tr}[(A\otimes B)F]=\mathrm{Tr}(AB)`$ and POVM completeness give
 
 ```math
 \mathbb E_Q \prod_{e\in S}t_e
-=\frac{1}{d^{mT}}\operatorname{Tr}\prod_{e\in S}F_e
+=\frac{1}{d^{mT}}\mathrm{Tr}\prod_{e\in S}F_e
 =d^{-|S|}.
 ```
 
@@ -95,7 +95,7 @@ The left side follows from $`Q(A_b^c)\ge1/2`$ and the binary entropy bound $`\lo
 
 The next lower bound holds even when each port stores all of its specimens and can perform arbitrary local instruments with two-way classical communication. It also holds for effects positive under partial transpose (PPT) across one fixed cut of the ports used in the proof. Each port is placed wholly on one side of the cut, including its full time sequence. Assume no preshared inter-port entanglement or inter-port quantum communication in the port-local model.
 
-Make $`K=\lfloor m/4\rfloor`$ disjoint quartets and place two ports of each quartet on each side of the cut. Choose the two possible cross-cut perfect matchings of each quartet independently with probability $`1/2`$. Fix an extra pair if two ports remain. For an effect $`E_y`$ and a state $`\rho`$, partial transpose of every register on the second side preserves the pairing $`\operatorname{Tr}(E_y\rho)=\operatorname{Tr}(E_y^{\Gamma}\rho^{\Gamma})`$. The transposed effects form a POVM because the original effects are PPT and sum to identity. The physical states on all cross-cut pairs also remain positive after this transpose. Specifically, $`F^{\Gamma}=d\Phi`$, with $`\Phi`$ the normalized maximally entangled projector, gives
+Make $`K=\lfloor m/4\rfloor`$ disjoint quartets and place two ports of each quartet on each side of the cut. Choose the two possible cross-cut perfect matchings of each quartet independently with probability $`1/2`$. Fix an extra pair if two ports remain. For an effect $`E_y`$ and a state $`\rho`$, partial transpose of every register on the second side preserves the pairing $`\mathrm{Tr}(E_y\rho)=\mathrm{Tr}(E_y^{\Gamma}\rho^{\Gamma})`$. The transposed effects form a POVM because the original effects are PPT and sum to identity. The physical states on all cross-cut pairs also remain positive after this transpose. Specifically, $`F^{\Gamma}=d\Phi`$, with $`\Phi`$ the normalized maximally entangled projector, gives
 
 ```math
 \rho_\theta^{\Gamma}=(1-\epsilon)\tau_2+\epsilon\Phi,
