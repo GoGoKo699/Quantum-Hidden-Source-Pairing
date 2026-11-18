@@ -1,0 +1,16 @@
+# Quantum Hidden Source Pairing
+
+This repository studies finite-shot exact recovery of a fixed but unknown matching of source ports. Each shot emits fresh, separable states across ports, with a shared latent preparation possible within each true pair.
+
+- README.md: central question, shot laws, scientific reading route, and reproduction command.
+- science/model.md: physical experiment, visibility, access models and exact readout probabilities.
+- science/receiver.md: buffered threshold-SWAP measurement, ordinary collision estimator, and no-inter-shot-buffer round-robin alternative.
+- science/bounds.md: joint and specimen-separable shot converses, confidence dependence, and a fixed-cut partial-transpose bound for port-local temporal storage.
+- science/interpretation.md: measurement resources, visibility limits, preparation assumptions and graph extension.
+- references/RELATED_WORK.md: inherited primitives and model-level comparisons.
+- verification/README.md and verification/check_pairing.py: deterministic finite checks.
+- learning/TUTORIAL.md: four-port route into the result.
+- learning/WATROUS_BRIDGE.md: educational anchor and the steps from its theorems to the model.
+- learning/MILESTONES.md: 30 project-specific learning milestones.
+
+Essential scope: the exponential factor is in specimen and shot complexity at matched visibility and fixed failure target. The strong local model allows coherent storage across time at each port. Its weak-visibility exponent is unresolved. The joint receiver's buffering and gate costs are charged separately.
