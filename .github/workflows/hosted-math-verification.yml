@@ -33,12 +33,12 @@ jobs:
       - name: Capture the integrated public scientific revision
         run: |
           export NODE_PATH="$RUNNER_TEMP/math-runtime/node_modules"
-          node .github/hosted-review/capture_hosted_math.cjs --root "$GITHUB_WORKSPACE" --repository "$GITHUB_REPOSITORY" --revision 08c22c5331bf5ff124c41b458184b45188bea07a --output "$RUNNER_TEMP/hosted-math"
+          node .github/hosted-review/capture_hosted_math.cjs --root "$GITHUB_WORKSPACE" --repository "$GITHUB_REPOSITORY" --revision ac2217885e61e3428c7db5d0ad56493261374299 --output "$RUNNER_TEMP/hosted-math"
       - name: Retain the capture and report
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: hosted-math-08c22c5331bf5ff124c41b458184b45188bea07a
+          name: hosted-math-ac2217885e61e3428c7db5d0ad56493261374299
           path: ${{ runner.temp }}/hosted-math
           if-no-files-found: error
           retention-days: 14
